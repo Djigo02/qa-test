@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.10 on win32)" generated="2025-05-30T17:42:12.277564" rpa="false" schemaversion="5">
+<suite id="s1" name="Facebook" source="C:\Users\mehme\Documents\M1GL\qa_test\c1\test2\facebook.robot">
+<test id="s1-t1" name="Cas1_LoginCorrecteMotDePasseIncorrect" line="10">
+<kw name="Ouvrir l'URL logistique">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-30T17:42:12.429490" level="INFO">Opening browser 'chrome' to base url 'https://front-logistique.groupeisi.com/login'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-30T17:42:12.429490" elapsed="3.065602"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-30T17:42:15.497551" elapsed="0.042101"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-30T17:42:18.540091" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-30T17:42:15.539652" elapsed="3.000439"/>
+</kw>
+<status status="PASS" start="2025-05-30T17:42:12.429490" elapsed="6.110601"/>
+</kw>
+<kw name="Saisir le username">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-30T17:42:18.542158" level="INFO">Typing text 'email@domaine.com' into text field 'name=email'.</msg>
+<arg>name=email</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T17:42:18.542158" elapsed="0.206353"/>
+</kw>
+<status status="PASS" start="2025-05-30T17:42:18.542158" elapsed="0.206353"/>
+</kw>
+<kw name="Saisir un mauvais mot de passe">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-05-30T17:42:18.860586" level="INFO">Typing password into text field 'name=password'.</msg>
+<msg time="2025-05-30T17:42:18.932882" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>name=password</arg>
+<arg>${INVALID_PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T17:42:18.835512" elapsed="0.203708"/>
+</kw>
+<status status="PASS" start="2025-05-30T17:42:18.835512" elapsed="0.204668"/>
+</kw>
+<kw name="Cliquez sur &quot;Sign in&quot;">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-30T17:42:19.041494" level="INFO">Clicking element '//*[@id="tab5"]/div[3]/button'.</msg>
+<arg>//*[@id="tab5"]/div[3]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T17:42:19.040986" elapsed="0.087835"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-30T17:42:24.130417" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-30T17:42:19.128821" elapsed="5.001596"/>
+</kw>
+<status status="PASS" start="2025-05-30T17:42:19.040180" elapsed="5.090237"/>
+</kw>
+<kw name="Vérifier le message d'erreur">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//*[@id="toast-container"]/div</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-30T17:42:24.133571" elapsed="0.081356"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-30T17:42:24.246901" level="INFO">${erreur} = Connexion
+Échec de la connexion: Email ou mot de passe incorrect</msg>
+<var>${erreur}</var>
+<arg>//*[@id="toast-container"]/div</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T17:42:24.215761" elapsed="0.031140"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-30T17:42:24.248908" level="INFO">Le message récupéré : Connexion
+Échec de la connexion: Email ou mot de passe incorrect</msg>
+<arg>Le message récupéré : ${erreur}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-30T17:42:24.246901" elapsed="0.002007"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${erreur}</arg>
+<arg>Email ou mot de passe incorrect</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-05-30T17:42:24.248908" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-05-30T17:42:24.130417" elapsed="0.118491"/>
+</kw>
+<kw name="Fermer le navigateur">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-05-30T17:42:24.250406" elapsed="2.418786"/>
+</kw>
+<status status="PASS" start="2025-05-30T17:42:24.249793" elapsed="2.419399"/>
+</kw>
+<status status="PASS" start="2025-05-30T17:42:12.429490" elapsed="14.239702"/>
+</test>
+<status status="PASS" start="2025-05-30T17:42:12.277564" elapsed="14.395669"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Facebook" id="s1" pass="1" fail="0" skip="0">Facebook</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

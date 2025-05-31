@@ -1,0 +1,7 @@
+URL=  "http://localhost:8080/"
+USERNAME= "jgotechmaker"
+PASSWORD= "passer"
+INVALID_PASSWORD= "pqsser"
+BROWSER=  "Chrome"
+ERROR_MESSAGE= "Nom d'utilisateur ou mot de passe incorrect"
+HOME_PAGE_TITLE= "Bienvenue sur Jenkins !"

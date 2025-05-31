@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.10 on win32)" generated="2025-05-30T16:55:35.620426" rpa="false" schemaversion="5">
+<suite id="s1" name="Connexion" source="C:\Users\mehme\Documents\M1GL\qa_test\c1\test1\connexion.robot">
+<test id="s1-t1" name="Cas1_LoginCorrecteMotDePasseIncorrect" line="10">
+<kw name="Ouvrir l'URL jenkins(http://18.201.83.167:8080)">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-30T16:55:35.788591" level="INFO">Opening browser 'chrome' to base url 'http://18.201.83.167:8080'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-30T16:55:35.788591" elapsed="2.037963"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-30T16:55:37.826554" elapsed="0.041544"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-30T16:55:40.868277" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-30T16:55:37.868098" elapsed="3.000179"/>
+</kw>
+<status status="PASS" start="2025-05-30T16:55:35.788591" elapsed="5.079686"/>
+</kw>
+<kw name="Saisir le bon username (admin)">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-30T16:55:40.868277" level="INFO">Typing text 'admin' into text field 'id=j_username'.</msg>
+<arg>id=j_username</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T16:55:40.868277" elapsed="0.086700"/>
+</kw>
+<status status="PASS" start="2025-05-30T16:55:40.868277" elapsed="0.088184"/>
+</kw>
+<kw name="Saisir un mauvais mot de passe (mauvais_mot_de_passe)">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-05-30T16:55:40.956894" level="INFO">Typing password into text field 'id=j_password'.</msg>
+<msg time="2025-05-30T16:55:40.996087" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id=j_password</arg>
+<arg>${INVALID_PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T16:55:40.956894" elapsed="0.161799"/>
+</kw>
+<status status="PASS" start="2025-05-30T16:55:40.956894" elapsed="0.161799"/>
+</kw>
+<kw name="Cliquez sur se &quot;Sign in&quot;">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-05-30T16:55:41.118693" level="INFO">Clicking button 'name=Submit'.</msg>
+<arg>name=Submit</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-30T16:55:41.118693" elapsed="0.082747"/>
+</kw>
+<status status="PASS" start="2025-05-30T16:55:41.118693" elapsed="0.082747"/>
+</kw>
+<kw name="Vérifier le message d'erreur">
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>//div[contains(@class,'error')]</arg>
+<arg>Nom d'utilisateur ou mot de passe incorrect</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2025-05-30T16:55:41.201440" elapsed="0.744449"/>
+</kw>
+<status status="PASS" start="2025-05-30T16:55:41.201440" elapsed="0.744449"/>
+</kw>
+<kw name="Fermer le navigateur">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-05-30T16:55:41.950904" elapsed="2.302161"/>
+</kw>
+<status status="PASS" start="2025-05-30T16:55:41.945889" elapsed="2.307176"/>
+</kw>
+<status status="PASS" start="2025-05-30T16:55:35.788591" elapsed="8.484616"/>
+</test>
+<status status="PASS" start="2025-05-30T16:55:35.620426" elapsed="8.657356"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Connexion" id="s1" pass="1" fail="0" skip="0">Connexion</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
