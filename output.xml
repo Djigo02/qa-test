@@ -1,148 +1,258 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.5 on win32)" generated="2025-06-20T00:23:49.082372" rpa="false" schemaversion="5">
-<suite id="s1" name="Submission" source="C:\Users\mehme\Documents\cours\M1GL\qa-test\cours4\Test-web\testcases\submission.robot">
-<kw name="Ouvrir l'URL" owner="submission" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-06-20T00:23:49.595009" level="INFO">Opening browser 'Edge' to base url 'https://selenium-practice.netlify.app/'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-06-20T00:23:49.594761" elapsed="126.952214"/>
+<robot generator="Robot 7.2.2 (Python 3.13.5 on win32)" generated="2025-06-20T21:07:34.921642" rpa="false" schemaversion="5">
+<suite id="s1" name="Fakestore Api Tests" source="C:\Users\mehme\Documents\cours\M1GL\qa-test\cours5\Test-API\testcases\fakestore_api_tests.robot">
+<kw name="Create Session To FakeStore" owner="fakestore_keywords" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-06-20T21:07:35.269974" level="INFO">Creating Session using : alias=fakestore, url=https://fakestoreapi.com, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>fakestore</arg>
+<arg>${BASE_URL}</arg>
+<arg>headers=${HEADERS}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-06-20T21:07:35.269762" elapsed="0.000384"/>
 </kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-06-20T00:25:56.556421" elapsed="0.314219"/>
+<status status="PASS" start="2025-06-20T21:07:35.269399" elapsed="0.000823"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-06-20T00:25:58.871538" level="INFO">Slept 2 seconds.</msg>
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-06-20T00:25:56.870973" elapsed="2.000801"/>
+<test id="s1-t1" name="Get List Of All Products" line="8">
+<kw name="Get List Of All Products" owner="fakestore_keywords">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-06-20T21:07:35.961507" level="INFO">GET Request : url=https://fakestoreapi.com/products 
+ path_url=/products 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+ body=None 
+ </msg>
+<msg time="2025-06-20T21:07:35.962039" level="INFO">GET Response : url=https://fakestoreapi.com/products 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 20 Jun 2025 21:07:35 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"297c-h+n6NsR3M51S6528jZo3BluzvtU"', 'X-Powered-By': 'Express', 'Cf-Cache-Status': 'DYNAMIC', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=32xtx%2FsohlXJvG9VlH8cCWcHACNR5Od1%2BGBVgICcbEOE61vuKkEtKveFefhfEZpim%2FJvJe%2FyjTirem3XrRZRM%2FFb2yVmzuLlW%2FOyKrBliQk%3D"}]}', 'Content-Encoding': 'gzip', 'Server': 'cloudflare', 'CF-RAY': '952e3c950c232a04-CDG', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body=[{"id":1,"title":"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops","price":109.95,"description":"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday","category":"men's clothing","image":"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg","rating":{"rate":3.9,"count":120}},{"id":2,"title":"Mens Casual Premium Slim Fit T-Shirts ","price":22.3,"description":"Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight &amp; soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.","category":"men's clothing","image":"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg","rating":{"rate":4.1,"count":259}},{"id":3,"title":"Mens Cotton Jacket","price":55.99,"description":"great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.","category":"men's clothing","image":"https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg","rating":{"rate":4.7,"count":500}},{"id":4,"title":"Mens Casual Slim Fit","price":15.99,"description":"The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.","category":"men's clothing","image":"https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg","rating":{"rate":2.1,"count":430}},{"id":5,"title":"John Hardy Women's Legends Naga Gold &amp; Silver Dragon Station Chain Bracelet","price":695,"description":"From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.","category":"jewelery","image":"https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg","rating":{"rate":4.6,"count":400}},{"id":6,"title":"Solid Gold Petite Micropave ","price":168,"description":"Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.","category":"jewelery","image":"https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg","rating":{"rate":3.9,"count":70}},{"id":7,"title":"White Gold Plated Princess","price":9.99,"description":"Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...","category":"jewelery","image":"https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg","rating":{"rate":3,"count":400}},{"id":8,"title":"Pierced Owl Rose Gold Plated Stainless Steel Double","price":10.99,"description":"Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel","category":"jewelery","image":"https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg","rating":{"rate":1.9,"count":100}},{"id":9,"title":"WD 2TB Elements Portable External Hard Drive - USB 3.0 ","price":64,"description":"USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system","category":"electronics","image":"https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg","rating":{"rate":3.3,"count":203}},{"id":10,"title":"SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s","price":109,"description":"Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)","category":"electronics","image":"https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg","rating":{"rate":2.9,"count":470}},{"id":11,"title":"Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5","price":109,"description":"3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks. Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking &amp; Correction) to provide the optimized performance and enhanced reliability.","category":"electronics","image":"https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg","rating":{"rate":4.8,"count":319}},{"id":12,"title":"WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive","price":114,"description":"Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty","category":"electronics","image":"https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg","rating":{"rate":4.8,"count":400}},{"id":13,"title":"Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin","price":599,"description":"21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz","category":"electronics","image":"https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg","rating":{"rate":2.9,"count":250}},{"id":14,"title":"Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ","price":999.99,"description":"49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag","category":"electronics","image":"https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg","rating":{"rate":2.2,"count":140}},{"id":15,"title":"BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats","price":56.99,"description":"Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside.Zippered Hand Pockets and Hidden Pocket keep your things secure. Humanized Design: Adjustable and Detachable Hood and Adjustable cuff to prevent the wind and water,for a comfortable fit. 3 in 1 Detachable Design provide more convenience, you can separate the coat and inner as needed, or wear it together. It is suitable for different season and help you adapt to different climates","category":"women's clothing","image":"https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg","rating":{"rate":2.6,"count":235}},{"id":16,"title":"Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket","price":29.95,"description":"100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON","category":"women's clothing","image":"https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg","rating":{"rate":2.9,"count":340}},{"id":17,"title":"Rain Jacket Women Windbreaker Striped Climbing Raincoats","price":39.99,"description":"Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.","category":"women's clothing","image":"https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg","rating":{"rate":3.8,"count":679}},{"id":18,"title":"MBJ Women's Solid Short Sleeve Boat Neck V ","price":9.85,"description":"95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem","category":"women's clothing","image":"https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg","rating":{"rate":4.7,"count":130}},{"id":19,"title":"Opna Women's Short Sleeve Moisture","price":7.95,"description":"100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash &amp; Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, ... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg time="2025-06-20T21:07:35.963231" level="INFO">C:\Users\mehme\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'fakestoreapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-20T21:07:35.965331" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>fakestore</arg>
+<arg>${BASE_URL}/products</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-20T21:07:35.270992" elapsed="0.694512"/>
 </kw>
-<status status="PASS" start="2025-06-20T00:23:49.594234" elapsed="129.277712"/>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-06-20T21:07:35.967099" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-20T21:07:35.965860" elapsed="0.001381"/>
 </kw>
-<test id="s1-t1" name="Inscription" line="13">
-<kw name="Saisir le bon username" owner="submission">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-20T00:25:58.874475" level="INFO">Typing text 'jgotechmaker' into text field 'id=name'.</msg>
-<arg>${id_name}</arg>
-<arg>${USERNAME}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-20T00:25:58.873423" elapsed="0.189152"/>
+<return>
+<value>${response.json()}</value>
+<status status="PASS" start="2025-06-20T21:07:35.967375" elapsed="0.000168"/>
+</return>
+<msg time="2025-06-20T21:07:35.969289" level="INFO">${products} = [{'id': 1, 'title': 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops', 'price': 109.95, 'description': 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 in...</msg>
+<var>${products}</var>
+<status status="PASS" start="2025-06-20T21:07:35.270812" elapsed="0.698576"/>
 </kw>
-<status status="PASS" start="2025-06-20T00:25:58.873072" elapsed="0.189798"/>
+<kw name="Length Should Be" owner="BuiltIn">
+<msg time="2025-06-20T21:07:35.970517" level="INFO">Length is 20.</msg>
+<arg>${products}</arg>
+<arg>20</arg>
+<doc>Verifies that the length of the given item is correct.</doc>
+<status status="PASS" start="2025-06-20T21:07:35.970148" elapsed="0.000485"/>
 </kw>
-<kw name="Choisir item 2" owner="submission">
-<kw name="Select From List By Index" owner="SeleniumLibrary">
-<msg time="2025-06-20T00:25:59.064395" level="INFO">Selecting options from selection list 'id=selection' by index 2.</msg>
-<arg>${id_selection}</arg>
-<arg>${Number_item}</arg>
-<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
-<status status="PASS" start="2025-06-20T00:25:59.063889" elapsed="0.277125"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${products}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-20T21:07:35.971200" elapsed="0.003641"/>
 </kw>
-<status status="PASS" start="2025-06-20T00:25:59.063383" elapsed="0.277793"/>
-</kw>
-<kw name="Sélectionner check 1 et 3" owner="submission">
-<for flavor="IN">
-<iter>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-20T00:25:59.343678" level="INFO">Clicking element 'id=check1'.</msg>
-<arg>${item}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-20T00:25:59.343337" elapsed="0.138765"/>
-</kw>
-<var name="${item}">id=check1</var>
-<status status="PASS" start="2025-06-20T00:25:59.343100" elapsed="0.139113"/>
-</iter>
-<iter>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-20T00:25:59.482894" level="INFO">Clicking element 'id=check3'.</msg>
-<arg>${item}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-20T00:25:59.482634" elapsed="0.119789"/>
-</kw>
-<var name="${item}">id=check3</var>
-<status status="PASS" start="2025-06-20T00:25:59.482456" elapsed="0.120129"/>
-</iter>
-<var>${item}</var>
-<value>${id_check1}</value>
-<value>${id_check3}</value>
-<status status="PASS" start="2025-06-20T00:25:59.342736" elapsed="0.259939"/>
-</for>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-06-20T00:26:01.608034" level="INFO">Slept 2 seconds.</msg>
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-06-20T00:25:59.602914" elapsed="2.005351"/>
-</kw>
-<status status="PASS" start="2025-06-20T00:25:59.341711" elapsed="2.266709"/>
-</kw>
-<kw name="Choisir une date" owner="submission">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-20T00:26:01.622191" level="INFO">Typing text '2002-02-23' into text field 'id=date'.</msg>
-<arg>${id_date}</arg>
-<arg>${DATE}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-20T00:26:01.617087" elapsed="0.245278"/>
-</kw>
-<status status="PASS" start="2025-06-20T00:26:01.614921" elapsed="0.247631"/>
-</kw>
-<kw name="Cliquer sur le bouton &quot;Submit&quot;" owner="submission">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-20T00:26:01.863848" level="INFO">Clicking element 'xpath=/html/body/form/button'.</msg>
-<arg>${submit_button}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-20T00:26:01.863530" elapsed="0.099776"/>
-</kw>
-<kw name="Get Value From User" owner="Dialogs">
-<msg time="2025-06-20T00:26:10.793534" level="INFO">${username} = coco</msg>
-<var>${username}</var>
-<arg>Donnez votre nom:</arg>
-<doc>Pauses execution and asks user to input a value.</doc>
-<status status="PASS" start="2025-06-20T00:26:01.963581" elapsed="8.830125"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-06-20T00:26:10.794477" level="INFO">L'utilisateur coco a teste</msg>
-<arg>L'utilisateur ${username} a teste</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-20T00:26:10.793985" elapsed="0.000639"/>
-</kw>
-<status status="PASS" start="2025-06-20T00:26:01.863080" elapsed="8.932030"/>
-</kw>
-<kw name="Vérifier le message d'erreur" owner="submission">
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-06-20T00:26:10.850688" level="INFO">Current page contains text 'Submitted Successfully'.</msg>
-<arg>${SUCCESS_MESSAGE}</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-06-20T00:26:10.833274" elapsed="0.017582"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-06-20T00:26:12.881987" level="INFO">Slept 2 seconds.</msg>
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-06-20T00:26:10.850989" elapsed="2.032274"/>
-</kw>
-<status status="PASS" start="2025-06-20T00:26:10.832988" elapsed="2.050429"/>
-</kw>
-<status status="PASS" start="2025-06-20T00:25:58.872081" elapsed="14.012934"/>
+<status status="PASS" start="2025-06-20T21:07:35.270275" elapsed="0.705402"/>
 </test>
-<kw name="Fermer le navigateur" owner="submission" type="TEARDOWN">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-06-20T00:26:12.887623" elapsed="2.404561"/>
+<test id="s1-t2" name="Get Product By ID" line="13">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-20T21:07:35.978598" level="INFO">${product_id} = 3</msg>
+<var>${product_id}</var>
+<arg>3</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-20T21:07:35.978326" elapsed="0.000320"/>
 </kw>
-<status status="PASS" start="2025-06-20T00:26:12.887446" elapsed="2.404938"/>
+<kw name="Get Product By ID" owner="fakestore_keywords">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-06-20T21:07:36.112064" level="INFO">GET Request : url=https://fakestoreapi.com/products/3 
+ path_url=/products/3 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+ body=None 
+ </msg>
+<msg time="2025-06-20T21:07:36.112143" level="INFO">GET Response : url=https://fakestoreapi.com/products/3 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 20 Jun 2025 21:07:36 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"1f7-sp1VJ3nFjCQkeyuDKaa7fYzPNXg"', 'X-Powered-By': 'Express', 'Cf-Cache-Status': 'DYNAMIC', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=%2F88IknpqwERG%2B6fHVYJFSNfedG%2BvfSWDXwJAvKHcpMrW83a6zBKd92W0eburNpTniiVcyGa37P8%2FDBpw%2Fd7PuT91bLkm91hUTxj3FW6upCE%3D"}]}', 'Content-Encoding': 'gzip', 'Server': 'cloudflare', 'CF-RAY': '952e3c967d9b2a04-CDG', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":3,"title":"Mens Cotton Jacket","price":55.99,"description":"great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.","category":"men's clothing","image":"https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg","rating":{"rate":4.7,"count":500}} 
+ </msg>
+<msg time="2025-06-20T21:07:36.112197" level="INFO">C:\Users\mehme\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'fakestoreapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-20T21:07:36.112754" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>fakestore</arg>
+<arg>${BASE_URL}/products/${product_id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-20T21:07:35.979528" elapsed="0.133259"/>
 </kw>
-<status status="PASS" start="2025-06-20T00:23:49.083701" elapsed="146.208810"/>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-06-20T21:07:36.113241" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-20T21:07:36.112908" elapsed="0.000376"/>
+</kw>
+<return>
+<value>${response.json()}</value>
+<status status="PASS" start="2025-06-20T21:07:36.113327" elapsed="0.000037"/>
+</return>
+<msg time="2025-06-20T21:07:36.113685" level="INFO">${product} = {'id': 3, 'title': 'Mens Cotton Jacket', 'price': 55.99, 'description': 'great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock ...</msg>
+<var>${product}</var>
+<arg>${product_id}</arg>
+<status status="PASS" start="2025-06-20T21:07:35.979073" elapsed="0.134633"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-06-20T21:07:36.113992" level="INFO">Length is 7.</msg>
+<arg>${product}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-06-20T21:07:36.113893" elapsed="0.000127"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-20T21:07:36.114286" elapsed="0.000257"/>
+</kw>
+<status status="PASS" start="2025-06-20T21:07:35.977725" elapsed="0.136951"/>
+</test>
+<test id="s1-t3" name="Post New Product" line="19">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-20T21:07:36.115648" level="INFO">${new_product} = {'title': 'Test Product', 'price': '19.99', 'description': 'This is a test product.', 'category': 'electronics'}</msg>
+<var>${new_product}</var>
+<arg>title=Test Product</arg>
+<arg>price=19.99</arg>
+<arg>description=This is a test product.</arg>
+<arg>category=electronics</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-20T21:07:36.115412" elapsed="0.000259"/>
+</kw>
+<kw name="Post New Product" owner="fakestore_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-20T21:07:36.241819" level="INFO">POST Request : url=https://fakestoreapi.com/products 
+ path_url=/products 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '112'} 
+ body=b'{"title": "Test Product", "price": "19.99", "description": "This is a test product.", "category": "electronics"}' 
+ </msg>
+<msg time="2025-06-20T21:07:36.241897" level="INFO">POST Response : url=https://fakestoreapi.com/products 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 20 Jun 2025 21:07:36 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"71-FvYjCpFWHeGKXnzp/hK1/ZhH6uA"', 'X-Powered-By': 'Express', 'Cf-Cache-Status': 'DYNAMIC', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=8X5CIOdAG6a5Cf%2F7ef%2BjNX9%2FA%2ByWqzpXyWCbf1FCWtoEdTFuTf8MqPt3gEUHRc2pnBQy6qRIhHgkReDWxkavz7p9VTiJZa%2B9YeV5t4F%2Bytg%3D"}]}', 'Content-Encoding': 'gzip', 'Server': 'cloudflare', 'CF-RAY': '952e3c974e4f2a04-CDG', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":21,"title":"Test Product","price":"19.99","description":"This is a test product.","category":"electronics"} 
+ </msg>
+<msg time="2025-06-20T21:07:36.242007" level="INFO">C:\Users\mehme\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'fakestoreapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-20T21:07:36.243047" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>fakestore</arg>
+<arg>${BASE_URL}/products</arg>
+<arg>json=${product_data}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-20T21:07:36.116037" elapsed="0.127048"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-06-20T21:07:36.243559" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-20T21:07:36.243210" elapsed="0.000395"/>
+</kw>
+<return>
+<value>${response.json()}</value>
+<status status="PASS" start="2025-06-20T21:07:36.243655" elapsed="0.000031"/>
+</return>
+<msg time="2025-06-20T21:07:36.244018" level="INFO">${created_product} = {'id': 21, 'title': 'Test Product', 'price': '19.99', 'description': 'This is a test product.', 'category': 'electronics'}</msg>
+<var>${created_product}</var>
+<arg>${new_product}</arg>
+<status status="PASS" start="2025-06-20T21:07:36.115858" elapsed="0.128183"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-06-20T21:07:36.244417" level="INFO">Length is 5.</msg>
+<arg>${created_product}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-06-20T21:07:36.244297" elapsed="0.000152"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${created_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-20T21:07:36.244966" elapsed="0.000473"/>
+</kw>
+<status status="PASS" start="2025-06-20T21:07:36.115157" elapsed="0.130878"/>
+</test>
+<test id="s1-t4" name="Delete Product By ID" line="24">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-20T21:07:36.248281" level="INFO">${product_id} = 1</msg>
+<var>${product_id}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-20T21:07:36.248141" elapsed="0.000163"/>
+</kw>
+<kw name="Delete Product By ID" owner="fakestore_keywords">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-06-20T21:07:36.469948" level="INFO">DELETE Request : url=https://fakestoreapi.com/products/1 
+ path_url=/products/1 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-06-20T21:07:36.470029" level="INFO">DELETE Response : url=https://fakestoreapi.com/products/1 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 20 Jun 2025 21:07:36 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"16c-MMdrqY6N0sTiefLdsgtBej9eunY"', 'X-Powered-By': 'Express', 'Cf-Cache-Status': 'DYNAMIC', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=0BULiU16vgqGjcGU9G6se3j7gMv0%2BO6AnWmRHR3AfUMI9tD8V2z25tem0lFfoo8Gx9aU7a6d4pUtFdL3f0TDNTjH9rf05zxqBDDy%2BLAPtl4%3D"}]}', 'Content-Encoding': 'gzip', 'Server': 'cloudflare', 'CF-RAY': '952e3c981ef52a04-CDG', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":1,"title":"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops","price":109.95,"description":"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday","category":"men's clothing","image":"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg","rating":{"rate":3.9,"count":120}} 
+ </msg>
+<msg time="2025-06-20T21:07:36.470077" level="INFO">C:\Users\mehme\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'fakestoreapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-20T21:07:36.470674" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>fakestore</arg>
+<arg>${BASE_URL}/products/${product_id}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-20T21:07:36.248776" elapsed="0.221952"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-06-20T21:07:36.471220" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-20T21:07:36.470853" elapsed="0.000420"/>
+</kw>
+<return>
+<value>${response.json()}</value>
+<status status="PASS" start="2025-06-20T21:07:36.471323" elapsed="0.000037"/>
+</return>
+<msg time="2025-06-20T21:07:36.471684" level="INFO">${response} = {'id': 1, 'title': 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops', 'price': 109.95, 'description': 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inc...</msg>
+<var>${response}</var>
+<arg>${product_id}</arg>
+<status status="PASS" start="2025-06-20T21:07:36.248575" elapsed="0.223159"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-20T21:07:36.472149" elapsed="0.000758"/>
+</kw>
+<status status="PASS" start="2025-06-20T21:07:36.247258" elapsed="0.226236"/>
+</test>
+<status status="PASS" start="2025-06-20T21:07:34.923829" elapsed="1.551860"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Submission" id="s1" pass="1" fail="0" skip="0">Submission</stat>
+<stat name="Fakestore Api Tests" id="s1" pass="4" fail="0" skip="0">Fakestore Api Tests</stat>
 </suite>
 </statistics>
 <errors>

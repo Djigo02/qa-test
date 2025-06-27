@@ -7,7 +7,7 @@ Variables   ../pageobject/variable.py
 
 *** Keywords ***
 Ouvrir l'URL
-    Open Browser    ${URL}    ${BROWSER}
+    Open Browser    ${URL}   ${BROWSER}
     Maximize Browser Window
     Sleep    2
 

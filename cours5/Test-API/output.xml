@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.5 on win32)" generated="2025-06-13T21:02:44.507726" rpa="false" schemaversion="5">
+<suite id="s1" name="Submission" source="C:\Users\Pro\Documents\M1GL\qa-test\qa-test\cours4\Test-web\testcases\submission.robot">
+<kw name="Ouvrir l'URL" owner="submission" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-06-13T21:02:45.015364" level="INFO">Opening browser 'Chrome' to base url 'https://selenium-practice.netlify.app/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-06-13T21:02:45.015086" elapsed="2.957030"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-13T21:02:47.973021" elapsed="0.054433"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-13T21:02:50.029468" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-13T21:02:48.028626" elapsed="2.001036"/>
+</kw>
+<status status="PASS" start="2025-06-13T21:02:45.014351" elapsed="5.015511"/>
+</kw>
+<test id="s1-t1" name="Inscription" line="13">
+<kw name="Saisir le bon username" owner="submission">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-13T21:02:50.031604" level="INFO">Typing text 'jgotechmaker' into text field 'id=name'.</msg>
+<arg>${id_name}</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-13T21:02:50.031192" elapsed="0.280388"/>
+</kw>
+<status status="PASS" start="2025-06-13T21:02:50.030863" elapsed="0.281420"/>
+</kw>
+<kw name="Choisir item 2" owner="submission">
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2025-06-13T21:02:50.316001" level="INFO">Selecting options from selection list 'id=selection' by index 2.</msg>
+<arg>${id_selection}</arg>
+<arg>${Number_item}</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2025-06-13T21:02:50.315003" elapsed="0.171702"/>
+</kw>
+<status status="PASS" start="2025-06-13T21:02:50.314326" elapsed="0.172579"/>
+</kw>
+<kw name="Sélectionner check 1 et 3" owner="submission">
+<for flavor="IN">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-13T21:02:50.490228" level="INFO">Clicking element 'id=check1'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-13T21:02:50.489631" elapsed="0.117270"/>
+</kw>
+<var name="${item}">id=check1</var>
+<status status="PASS" start="2025-06-13T21:02:50.489116" elapsed="0.117910"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-13T21:02:50.607541" level="INFO">Clicking element 'id=check3'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-13T21:02:50.607321" elapsed="0.111772"/>
+</kw>
+<var name="${item}">id=check3</var>
+<status status="PASS" start="2025-06-13T21:02:50.607194" elapsed="0.111995"/>
+</iter>
+<var>${item}</var>
+<value>${id_check1}</value>
+<value>${id_check3}</value>
+<status status="PASS" start="2025-06-13T21:02:50.488437" elapsed="0.230834"/>
+</for>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-13T21:02:52.720532" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-13T21:02:50.719586" elapsed="2.001116"/>
+</kw>
+<status status="PASS" start="2025-06-13T21:02:50.487517" elapsed="2.233462"/>
+</kw>
+<kw name="Choisir une date" owner="submission">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-13T21:02:52.722115" level="INFO">Typing text '2002-02-23' into text field 'id=date'.</msg>
+<arg>${id_date}</arg>
+<arg>${DATE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-13T21:02:52.721896" elapsed="0.147509"/>
+</kw>
+<status status="PASS" start="2025-06-13T21:02:52.721605" elapsed="0.148087"/>
+</kw>
+<kw name="Cliquer sur le bouton &quot;Submit&quot;" owner="submission">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-13T21:02:52.870971" level="INFO">Clicking element 'xpath=/html/body/form/button'.</msg>
+<arg>${submit_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-13T21:02:52.870722" elapsed="0.123356"/>
+</kw>
+<kw name="Get Value From User" owner="Dialogs">
+<msg time="2025-06-13T21:02:57.035878" level="FAIL">No value provided by user.</msg>
+<var>${username}</var>
+<arg>Input user name</arg>
+<arg>default</arg>
+<doc>Pauses execution and asks user to input a value.</doc>
+<status status="FAIL" start="2025-06-13T21:02:52.994338" elapsed="4.042041">No value provided by user.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>L'utilisateur ${username} a teste</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-06-13T21:02:57.036839" elapsed="0.000082"/>
+</kw>
+<status status="FAIL" start="2025-06-13T21:02:52.870248" elapsed="4.167446">No value provided by user.</status>
+</kw>
+<kw name="Vérifier le message d'erreur" owner="submission">
+<status status="NOT RUN" start="2025-06-13T21:02:57.038254" elapsed="0.000090"/>
+</kw>
+<status status="FAIL" start="2025-06-13T21:02:50.030055" elapsed="7.010212">No value provided by user.</status>
+</test>
+<kw name="Fermer le navigateur" owner="submission" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-06-13T21:02:57.050526" elapsed="2.365640"/>
+</kw>
+<status status="PASS" start="2025-06-13T21:02:57.050144" elapsed="2.366160"/>
+</kw>
+<status status="FAIL" start="2025-06-13T21:02:44.510435" elapsed="14.905922"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Submission" id="s1" pass="0" fail="1" skip="0">Submission</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

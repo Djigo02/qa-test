@@ -1,0 +1,6 @@
+id_name = "id=name"
+id_selection = "id=selection"
+id_check1 = "id=check1"
+id_check3 = "id=check3"
+id_date = "id=date"
+submit_button = "xpath=/html/body/form/button"
