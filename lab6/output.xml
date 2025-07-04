@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.5 on win32)" generated="2025-07-04T03:18:06.940315" rpa="false" schemaversion="5">
+<suite id="s1" name="Fakestore Api Tests" source="C:\Users\mehme\Documents\cours\M1GL\qa-test\lab6\testcases\fakestore_api_tests.robot">
+<kw name="Create Session To Petstore" owner="fakestore_keywords" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-07-04T03:18:07.273691" level="INFO">Creating Session using : alias=Petstore, url=https://petstore.swagger.io/v2, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>Petstore</arg>
+<arg>${BASE_URL}</arg>
+<arg>headers=${HEADERS}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-07-04T03:18:07.273492" elapsed="0.000345"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Created session to Petstore at ${BASE_URL}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-04T03:18:07.273934" elapsed="0.000535"/>
+</kw>
+<status status="PASS" start="2025-07-04T03:18:07.273165" elapsed="0.001391"/>
+</kw>
+<test id="s1-t1" name="Create Petstore Pet" line="7">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-07-04T03:18:07.275238" level="INFO">${pet_data} = {'id': '2001', 'name': 'CocoLaye', 'status': 'offered'}</msg>
+<var>${pet_data}</var>
+<arg>id=2001</arg>
+<arg>name=CocoLaye</arg>
+<arg>status=offered</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-07-04T03:18:07.275023" elapsed="0.000241"/>
+</kw>
+<kw name="Create Petstore Pet" owner="fakestore_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-07-04T03:18:08.209146" level="INFO">POST Request : url=https://petstore.swagger.io/v2/pet 
+ path_url=/v2/pet 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '55'} 
+ body=b'{"id": "2001", "name": "CocoLaye", "status": "offered"}' 
+ </msg>
+<msg time="2025-07-04T03:18:08.209410" level="INFO">POST Response : url=https://petstore.swagger.io/v2/pet 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 04 Jul 2025 03:18:08 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"id":2001,"name":"CocoLaye","photoUrls":[],"tags":[],"status":"offered"} 
+ </msg>
+<msg time="2025-07-04T03:18:08.209581" level="INFO">C:\Users\mehme\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-07-04T03:18:08.224397" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>Petstore</arg>
+<arg>/pet</arg>
+<arg>json=${pet_data}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-07-04T03:18:07.275864" elapsed="0.948665"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${response.ok}</arg>
+<arg>Petstore API call failed with status code ${response.status_code}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-07-04T03:18:08.224904" elapsed="0.002006"/>
+</kw>
+<msg time="2025-07-04T03:18:08.227157" level="INFO">${response} = None</msg>
+<var>${response}</var>
+<arg>${pet_data}</arg>
+<status status="PASS" start="2025-07-04T03:18:07.275669" elapsed="0.951537"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Created pet with2: ${pet_data}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-04T03:18:08.227886" elapsed="0.000832"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-04T03:18:10.231014" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-04T03:18:08.229216" elapsed="2.001960"/>
+</kw>
+<doc>Creee un pet dans Petstore</doc>
+<status status="PASS" start="2025-07-04T03:18:07.274600" elapsed="2.957098"/>
+</test>
+<test id="s1-t2" name="Get Petstore Pet" line="14">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-04T03:18:10.233323" level="INFO">${pet_id} = 2001</msg>
+<var>${pet_id}</var>
+<arg>2001</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-04T03:18:10.233138" elapsed="0.000211"/>
+</kw>
+<kw name="Get Petstore Pet" owner="fakestore_keywords">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-07-04T03:18:10.374384" level="INFO">GET Request : url=https://petstore.swagger.io/v2/pet/2001 
+ path_url=/v2/pet/2001 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+ body=None 
+ </msg>
+<msg time="2025-07-04T03:18:10.374483" level="INFO">GET Response : url=https://petstore.swagger.io/v2/pet/2001 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 04 Jul 2025 03:18:10 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"id":2001,"name":"Taliban","photoUrls":[],"tags":[],"status":"sold"} 
+ </msg>
+<msg time="2025-07-04T03:18:10.374542" level="INFO">C:\Users\mehme\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-07-04T03:18:10.375057" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>Petstore</arg>
+<arg>/pet/${pet_id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-07-04T03:18:10.234408" elapsed="0.140682"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${response.ok}</arg>
+<arg>Petstore API call failed with status code ${response.status_code}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-07-04T03:18:10.375247" elapsed="0.000750"/>
+</kw>
+<return>
+<value>${response.json()}</value>
+<status status="PASS" start="2025-07-04T03:18:10.376116" elapsed="0.000058"/>
+</return>
+<msg time="2025-07-04T03:18:10.376514" level="INFO">${response} = {'id': 2001, 'name': 'Taliban', 'photoUrls': [], 'tags': [], 'status': 'sold'}</msg>
+<var>${response}</var>
+<arg>${pet_id}</arg>
+<status status="PASS" start="2025-07-04T03:18:10.233884" elapsed="0.142650"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Retrieved pet: ${response}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-04T03:18:10.377036" elapsed="0.000623"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-04T03:18:12.378946" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-04T03:18:10.378254" elapsed="2.000907"/>
+</kw>
+<doc>Renvoie un pet par son ID</doc>
+<status status="PASS" start="2025-07-04T03:18:10.232385" elapsed="2.147435"/>
+</test>
+<test id="s1-t3" name="Update Petstore Pet" line="21">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-04T03:18:12.382617" level="INFO">${pet_id} = 2001</msg>
+<var>${pet_id}</var>
+<arg>2001</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-04T03:18:12.382290" elapsed="0.000388"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-07-04T03:18:12.383740" level="INFO">${pet_data} = {'id': '2001', 'name': 'Taliban', 'status': 'sold'}</msg>
+<var>${pet_data}</var>
+<arg>id=${pet_id}</arg>
+<arg>name=Taliban</arg>
+<arg>status=sold</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-07-04T03:18:12.383208" elapsed="0.000589"/>
+</kw>
+<kw name="Update Petstore Pet" owner="fakestore_keywords">
+<kw name="PUT On Session" owner="RequestsLibrary">
+<msg time="2025-07-04T03:18:12.597156" level="INFO">PUT Request : url=https://petstore.swagger.io/v2/pet 
+ path_url=/v2/pet 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '51'} 
+ body=b'{"id": "2001", "name": "Taliban", "status": "sold"}' 
+ </msg>
+<msg time="2025-07-04T03:18:12.597474" level="INFO">PUT Response : url=https://petstore.swagger.io/v2/pet 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 04 Jul 2025 03:18:12 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"id":2001,"name":"Taliban","photoUrls":[],"tags":[],"status":"sold"} 
+ </msg>
+<msg time="2025-07-04T03:18:12.597664" level="INFO">C:\Users\mehme\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-07-04T03:18:12.598783" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>Petstore</arg>
+<arg>/pet</arg>
+<arg>json=${pet_data}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-07-04T03:18:12.384982" elapsed="0.213950"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${response.ok}</arg>
+<arg>Petstore API call failed with status code ${response.status_code}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-07-04T03:18:12.599323" elapsed="0.001899"/>
+</kw>
+<return>
+<value>${response.json()}</value>
+<status status="PASS" start="2025-07-04T03:18:12.601362" elapsed="0.000117"/>
+</return>
+<msg time="2025-07-04T03:18:12.602451" level="INFO">${response} = {'id': 2001, 'name': 'Taliban', 'photoUrls': [], 'tags': [], 'status': 'sold'}</msg>
+<var>${response}</var>
+<arg>${pet_id}</arg>
+<arg>${pet_data}</arg>
+<status status="PASS" start="2025-07-04T03:18:12.384383" elapsed="0.218135"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Updated pet: ${response}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-04T03:18:12.603311" elapsed="0.001064"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-04T03:18:14.606326" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-04T03:18:12.604911" elapsed="2.001728"/>
+</kw>
+<doc>Met à jour un pet dans Petstore</doc>
+<status status="PASS" start="2025-07-04T03:18:12.380958" elapsed="2.226627"/>
+</test>
+<test id="s1-t4" name="Delete Petstore Pet" line="29">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-04T03:18:14.610900" level="INFO">${pet_id} = 2001</msg>
+<var>${pet_id}</var>
+<arg>2001</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-04T03:18:14.610481" elapsed="0.000497"/>
+</kw>
+<kw name="Delete Petstore Pet" owner="fakestore_keywords">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-07-04T03:18:14.849408" level="INFO">DELETE Request : url=https://petstore.swagger.io/v2/pet/2001 
+ path_url=/v2/pet/2001 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-07-04T03:18:14.849634" level="INFO">DELETE Response : url=https://petstore.swagger.io/v2/pet/2001 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 04 Jul 2025 03:18:14 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"code":200,"type":"unknown","message":"2001"} 
+ </msg>
+<msg time="2025-07-04T03:18:14.849764" level="INFO">C:\Users\mehme\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-07-04T03:18:14.850584" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>Petstore</arg>
+<arg>/pet/${pet_id}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-07-04T03:18:14.612395" elapsed="0.238268"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${response.ok}</arg>
+<arg>Petstore API call failed with status code ${response.status_code}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-07-04T03:18:14.850967" elapsed="0.001613"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Deleted pet with ID ${pet_id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-04T03:18:14.852815" elapsed="0.000876"/>
+</kw>
+<arg>${pet_id}</arg>
+<status status="PASS" start="2025-07-04T03:18:14.611752" elapsed="0.242133"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Deleted pet with ID: ${pet_id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-04T03:18:14.854525" elapsed="0.000869"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-04T03:18:16.856914" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-04T03:18:14.856055" elapsed="2.000987"/>
+</kw>
+<doc>Supprime un pet dans Petstore</doc>
+<status status="PASS" start="2025-07-04T03:18:14.609359" elapsed="2.248178"/>
+</test>
+<status status="PASS" start="2025-07-04T03:18:06.942420" elapsed="9.915767"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Fakestore Api Tests" id="s1" pass="4" fail="0" skip="0">Fakestore Api Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
